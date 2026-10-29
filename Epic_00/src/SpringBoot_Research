@@ -1,0 +1,189 @@
+//EPIC 00 TASK 2
+
+# Spring Boot Research
+
+## 1. What is Spring Framework?
+
+Spring is a Java framework used to develop enterprise applications.
+It provides features such as dependency injection, transaction
+management, web development, and integration with databases.
+
+## 2. What Problem Does Spring Solve?
+
+Spring reduces application complexity by providing:
+
+- Dependency Injection
+- Inversion of Control
+- Database integration
+- Web application support
+- Transaction management
+- Security integration
+- Modular application development
+
+## 3. What is Spring Boot?
+
+Spring Boot is a framework built on top of Spring that simplifies
+the development and deployment of Spring applications.
+
+It provides:
+
+- Auto-configuration
+- Starter dependencies
+- Embedded servers
+- Production-ready features
+- Less configuration
+
+## 4. Spring vs Spring Boot
+
+Spring is the main framework.
+
+Spring Boot simplifies Spring application development by providing
+auto-configuration, starters, and embedded servers.
+
+## 5. Dependency Injection
+
+Dependency Injection means providing an object with the dependencies
+it needs instead of creating those dependencies manually.
+
+Example:
+
+A Controller can receive a Service through constructor injection.
+
+## 6. IoC
+
+IoC means Inversion of Control.
+
+Instead of application code creating and managing every object,
+the Spring IoC container manages Spring objects and their lifecycle.
+
+## 7. Spring Bean
+
+A Spring Bean is an object managed by the Spring IoC container.
+
+Beans can be created using annotations such as:
+
+- @Component
+- @Service
+- @Repository
+- @Controller
+
+## 8. @SpringBootApplication
+
+@SpringBootApplication is a commonly used Spring Boot annotation.
+
+It combines important functionality including:
+
+- Configuration
+- Component scanning
+- Spring Boot auto-configuration
+
+## 9. Controller
+
+A Controller handles HTTP requests from clients.
+
+Example:
+
+GET /api/employees
+
+The request can be handled by an EmployeeController.
+
+## 10. Service
+
+A Service contains business logic.
+
+Example:
+
+EmployeeService can contain operations such as:
+
+- Create employee
+- Update employee
+- Find employee
+- Delete employee
+
+## 11. Repository
+
+A Repository handles data access.
+
+Example:
+
+EmployeeRepository can communicate with the database using
+Spring Data JPA.
+
+## 12. Spring Data JPA
+
+Spring Data JPA simplifies database access in Spring applications.
+
+It allows developers to create repositories without writing
+large amounts of database access code.
+
+## 13. Spring MVC
+
+Spring MVC is used to build web applications and REST APIs.
+
+The basic flow is:
+
+Client
+ ↓
+Controller
+ ↓
+Service
+ ↓
+Repository
+ ↓
+Database
+
+## 14. Spring Security
+
+Spring Security provides authentication and authorization features.
+
+It can be used for:
+
+- Login
+- Authentication
+- Authorization
+- Role-based access
+- JWT security
+
+## 15. Spring Boot Starter
+
+Starters are dependency collections that simplify configuration.
+
+Examples include:
+
+- Spring Web
+- Spring Data JPA
+- Spring Security
+- Validation
+
+## 16. Application Properties
+
+Application configuration can be stored in:
+
+application.properties
+
+or:
+
+application.yml
+
+Examples include:
+
+- Server port
+- Database configuration
+- Logging configuration
+- Application settings
+
+## 17. Maven
+
+Maven is a build and dependency management tool.
+
+It manages:
+
+- Dependencies
+- Compilation
+- Testing
+- Packaging
+- Build lifecycle
+
+The Maven configuration file is:
+
+pom.xml

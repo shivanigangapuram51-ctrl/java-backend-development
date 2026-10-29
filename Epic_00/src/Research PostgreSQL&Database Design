@@ -1,0 +1,28 @@
+    EPIC 00 TASK-5
+
+             # ORGANIZATIONS
+
+                  PK: organization_id
+                       |
+          +---------------+---------------+
+          |               |               |
+          v               v               v
+        USERS        DEPARTMENTS     SUBSCRIPTIONS
+     PK: user_id    PK: department_id  PK: subscription_id
+          |               |
+          |               v
+          |          EMPLOYEES
+          |        PK: employee_id
+          |               |
+          |       +-------+-------+
+          |       |       |       |
+          v       v       v       v
+        ROLES  ATTENDANCE  LEAVE_REQUESTS  PAYROLL
+          |
+          v
+     PERMISSIONS
+
+        USERS
+          |
+          v
+     AUDIT_LOGS

@@ -1,0 +1,291 @@
+//EPIC 00 TASK-08
+# Multi-Tenant Employee & HR SaaS Platform — Module Research
+
+## 1. Authentication
+
+**Purpose:** Handles user registration, login, logout, password management, and authentication.
+
+**Main Users:** Employees, HR, Managers, Administrators.
+
+**Important Data:** User ID, email, password hash, authentication status, tokens, tenant ID.
+
+**Expected APIs:**
+- POST `/api/auth/register`
+- POST `/api/auth/login`
+- POST `/api/auth/logout`
+- POST `/api/auth/refresh-token`
+- POST `/api/auth/forgot-password`
+
+**Dependencies:** Users, Organizations/Tenants, Roles & Permissions.
+
+---
+
+## 2. Users
+
+**Purpose:** Manages user accounts and their relationship with the organization.
+
+**Main Users:** Administrators, HR, Managers.
+
+**Important Data:** User ID, name, email, status, tenant ID, role.
+
+**Expected APIs:**
+- GET `/api/users`
+- GET `/api/users/{id}`
+- POST `/api/users`
+- PUT `/api/users/{id}`
+- DELETE `/api/users/{id}`
+
+**Dependencies:** Authentication, Organizations/Tenants, Roles & Permissions.
+
+---
+
+## 3. Organizations / Tenants
+
+**Purpose:** Manages customer organizations using the SaaS platform.
+
+**Main Users:** Platform Administrators, Organization Administrators.
+
+**Important Data:** Tenant ID, organization name, contact details, status, configuration.
+
+**Expected APIs:**
+- POST `/api/tenants`
+- GET `/api/tenants/{id}`
+- PUT `/api/tenants/{id}`
+- DELETE `/api/tenants/{id}`
+
+**Dependencies:** Users, Subscriptions, Billing.
+
+---
+
+## 4. Employees
+
+**Purpose:** Manages employee profiles and employment information.
+
+**Main Users:** HR, Managers, Employees.
+
+**Important Data:** Employee ID, name, email, phone, department, designation, joining date, tenant ID.
+
+**Expected APIs:**
+- GET `/api/employees`
+- GET `/api/employees/{id}`
+- POST `/api/employees`
+- PUT `/api/employees/{id}`
+- DELETE `/api/employees/{id}`
+
+**Dependencies:** Departments, Attendance, Leave Management, Payroll.
+
+---
+
+## 5. Departments
+
+**Purpose:** Manages departments within an organization.
+
+**Main Users:** HR, Administrators, Managers.
+
+**Important Data:** Department ID, department name, manager, tenant ID.
+
+**Expected APIs:**
+- GET `/api/departments`
+- GET `/api/departments/{id}`
+- POST `/api/departments`
+- PUT `/api/departments/{id}`
+- DELETE `/api/departments/{id}`
+
+**Dependencies:** Organizations, Employees.
+
+---
+
+## 6. Attendance
+
+**Purpose:** Tracks employee attendance, working hours, check-in, and check-out.
+
+**Main Users:** Employees, HR, Managers.
+
+**Important Data:** Employee ID, date, check-in time, check-out time, attendance status, working hours.
+
+**Expected APIs:**
+- POST `/api/attendance/check-in`
+- POST `/api/attendance/check-out`
+- GET `/api/attendance`
+- GET `/api/attendance/employee/{employeeId}`
+
+**Dependencies:** Employees, Users.
+
+---
+
+## 7. Leave Management
+
+**Purpose:** Allows employees to request leave and managers/HR to approve or reject requests.
+
+**Main Users:** Employees, Managers, HR.
+
+**Important Data:** Leave ID, employee ID, leave type, start date, end date, reason, status.
+
+**Expected APIs:**
+- POST `/api/leaves`
+- GET `/api/leaves`
+- GET `/api/leaves/{id}`
+- PUT `/api/leaves/{id}/approve`
+- PUT `/api/leaves/{id}/reject`
+
+**Dependencies:** Employees, Users, Notifications.
+
+---
+
+## 8. Payroll
+
+**Purpose:** Manages employee salary and payroll processing.
+
+**Main Users:** HR, Payroll Administrators, Employees.
+
+**Important Data:** Employee ID, salary, allowances, deductions, tax, pay period, net salary.
+
+**Expected APIs:**
+- GET `/api/payroll`
+- GET `/api/payroll/{id}`
+- POST `/api/payroll`
+- PUT `/api/payroll/{id}`
+
+**Dependencies:** Employees, Departments, Attendance, Leave Management.
+
+---
+
+## 9. Notifications
+
+**Purpose:** Sends system notifications for important events and actions.
+
+**Main Users:** Employees, Managers, HR, Administrators.
+
+**Important Data:** Notification ID, recipient, message, type, status, created date.
+
+**Expected APIs:**
+- GET `/api/notifications`
+- PUT `/api/notifications/{id}/read`
+- POST `/api/notifications/send`
+
+**Dependencies:** Users, Leave Management, Attendance, Payroll.
+
+---
+
+## 10. Reports
+
+**Purpose:** Provides HR and management reports about employees and organizational activities.
+
+**Main Users:** HR, Managers, Administrators.
+
+**Important Data:** Employee data, attendance, leave, payroll, department information.
+
+**Expected APIs:**
+- GET `/api/reports/employees`
+- GET `/api/reports/attendance`
+- GET `/api/reports/leave`
+- GET `/api/reports/payroll`
+
+**Dependencies:** Employees, Attendance, Leave Management, Payroll.
+
+---
+
+## 11. Roles & Permissions
+
+**Purpose:** Controls what users can access and what actions they can perform.
+
+**Main Users:** Administrators, HR.
+
+**Important Data:** Role ID, role name, permission ID, permission name, user-role mapping.
+
+**Expected APIs:**
+- GET `/api/roles`
+- POST `/api/roles`
+- PUT `/api/roles/{id}`
+- GET `/api/permissions`
+- POST `/api/roles/{id}/permissions`
+
+**Dependencies:** Users, Organizations/Tenants, Authentication.
+
+In a multi-tenant system, authorization should enforce both the user's permissions and the tenant boundary.
+
+---
+
+## 12. Subscriptions
+
+**Purpose:** Manages the subscription plan selected by each organization.
+
+**Main Users:** Organization Administrators, Platform Administrators.
+
+**Important Data:** Subscription ID, tenant ID, plan, start date, end date, status, features.
+
+**Expected APIs:**
+- GET `/api/subscriptions`
+- GET `/api/subscriptions/{id}`
+- POST `/api/subscriptions`
+- PUT `/api/subscriptions/{id}`
+
+**Dependencies:** Organizations/Tenants, Billing.
+
+---
+
+## 13. Billing
+
+**Purpose:** Manages invoices, payments, billing information, and subscription charges.
+
+**Main Users:** Organization Administrators, Platform Administrators.
+
+**Important Data:** Invoice ID, tenant ID, amount, payment status, billing date, payment reference.
+
+**Expected APIs:**
+- GET `/api/billing/invoices`
+- GET `/api/billing/invoices/{id}`
+- POST `/api/billing/invoices`
+- GET `/api/billing/payments`
+
+**Dependencies:** Organizations/Tenants, Subscriptions.
+
+---
+
+## 14. Audit Logs
+
+**Purpose:** Records important user and system activities for security, troubleshooting, and auditing.
+
+**Main Users:** Administrators, Auditors, Platform Administrators.
+
+**Important Data:** Log ID, user ID, tenant ID, action, resource, timestamp, IP address, result.
+
+**Expected APIs:**
+- GET `/api/audit-logs`
+- GET `/api/audit-logs/{id}`
+
+**Dependencies:** Users, Organizations/Tenants, Roles & Permissions.
+
+---
+
+# Module Dependency Overview
+
+```text
+Authentication
+       |
+       v
+Users -----> Roles & Permissions
+  |
+  v
+Organizations / Tenants
+  |
+  +---- Employees ---- Departments
+  |         |
+  |         +---- Attendance
+  |         |
+  |         +---- Leave Management
+  |         |
+  |         +---- Payroll
+  |
+  +---- Subscriptions ---- Billing
+  |
+  +---- Notifications
+  |
+  +---- Reports
+  |
+  +---- Audit Logs
+```
+
+# Conclusion
+
+The Multi-Tenant Employee & HR SaaS Platform contains modules for authentication, tenant management, employees, HR operations, access control, subscriptions, billing, notifications, reporting, and auditing. Each module should operate within the correct tenant context so that one organization's data cannot be accessed by another organization.

@@ -1,0 +1,156 @@
+EPIC 00 TASK-4
+# SaaS Architecture Research
+
+## 1. What is SaaS?
+
+SaaS stands for Software as a Service.
+
+It is a software delivery model where users access software
+through a network, commonly through a web browser or API,
+without managing the underlying application infrastructure.
+
+## 2. SaaS vs Traditional Software
+
+Traditional software may require installation and maintenance
+on individual systems.
+
+SaaS is generally centrally hosted and maintained by the
+service provider.
+
+## 3. Tenant
+
+A tenant represents a customer or organization using a SaaS platform.
+
+For an HR platform:
+
+Company A can be one tenant.
+
+Company B can be another tenant.
+
+## 4. Multi-Tenancy
+
+Multi-tenancy means one application serves multiple customers
+while keeping their data logically separated.
+
+Example:
+
+SaaS Platform
+ |
+ +-- Company A
+ |    +-- Employees
+ |    +-- HR
+ |    +-- Payroll
+ |
+ +-- Company B
+      +-- Employees
+      +-- HR
+      +-- Payroll
+
+## 5. Tenant Isolation
+
+Tenant isolation ensures that one organization cannot access
+another organization's data.
+
+For example:
+
+Company A must not be able to retrieve Company B's employees.
+
+## 6. Subscription Plans
+
+A SaaS platform may provide different plans.
+
+Example:
+
+- Free
+- Basic
+- Professional
+- Enterprise
+
+Plans may have different features and limits.
+
+## 7. User Management
+
+User management includes:
+
+- Creating users
+- Updating users
+- Activating users
+- Deactivating users
+- Managing user profiles
+
+## 8. Role-Based Access Control
+
+RBAC means Role-Based Access Control.
+
+Different users receive different permissions based on their roles.
+
+Example:
+
+Admin
+HR Manager
+HR Employee
+Employee
+
+## 9. SaaS Billing
+
+Billing manages customer subscriptions and payments.
+
+It may include:
+
+- Subscription
+- Invoice
+- Payment
+- Plan
+- Billing status
+
+## 10. SaaS Administration
+
+Administrators may manage:
+
+- Organizations
+- Users
+- Plans
+- Subscriptions
+- System configuration
+- Reports
+
+## 11. SaaS Security
+
+Important security concerns include:
+
+- Authentication
+- Authorization
+- Password protection
+- Encryption
+- Tenant isolation
+- API security
+- Audit logging
+- Secure configuration
+
+## 12. Tenant-Level Configuration
+
+Different organizations may have their own:
+
+- Working hours
+- Leave policies
+- Payroll settings
+- Departments
+- Roles
+- Notifications
+- Organization settings
+
+## 13. Typical SaaS Architecture
+
+Client
+  ↓
+REST API
+  ↓
+Spring Boot Application
+  ↓
+Service Layer
+  ↓
+Repository Layer
+  ↓
+Database
+
+Security and tenant identification apply across the application.

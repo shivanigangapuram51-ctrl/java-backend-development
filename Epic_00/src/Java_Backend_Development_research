@@ -1,0 +1,165 @@
+//EPIC 00 TASK-1
+
+# Java Backend Development Research
+1. What is Java?
+
+Java is a high-level, object-oriented, class-based programming language.
+It is widely used for enterprise applications, backend systems,
+web applications, APIs, and distributed applications.
+
+Java source code is compiled into bytecode, which runs on the Java
+Virtual Machine (JVM).
+
+## 2. JDK vs JRE vs JVM
+
+### JVM
+
+JVM stands for Java Virtual Machine. It executes Java bytecode and
+provides platform independence.
+
+### JRE
+
+JRE stands for Java Runtime Environment. It provides the JVM and
+libraries required to run Java applications.
+
+### JDK
+
+JDK stands for Java Development Kit. It contains the tools required
+to develop Java applications, including the Java compiler and JRE.
+
+Relationship:
+
+JDK
+ ├── Development tools
+ └── JRE
+      └── JVM
+
+## 3. Why Java for Backend?
+
+Java is commonly used for backend development because of:
+
+- Platform independence
+- Object-oriented programming
+- Strong type checking
+- Automatic memory management
+- Large ecosystem
+- Strong security features
+- Excellent database support
+- Multithreading support
+- Mature frameworks such as Spring Boot
+- Large enterprise adoption
+
+## 4. Important Java Features
+
+- Object-oriented
+- Platform independent
+- Robust
+- Secure
+- Multithreaded
+- Portable
+- High performance
+- Automatic garbage collection
+- Strong ecosystem
+
+## 5. Object-Oriented Programming
+
+The main OOP concepts are:
+
+### Encapsulation
+
+Encapsulation means keeping data and the methods that operate on
+that data together and controlling access to the data.
+
+### Inheritance
+
+Inheritance allows one class to acquire properties and behavior
+from another class.
+
+### Polymorphism
+
+Polymorphism allows the same interface or method concept to have
+different implementations.
+
+### Abstraction
+
+Abstraction hides implementation details and exposes only the
+necessary functionality.
+
+## 6. Collections
+
+Java Collections provide data structures for storing and manipulating
+groups of objects.
+
+Important collections include:
+
+- List
+- ArrayList
+- LinkedList
+- Set
+- HashSet
+- TreeSet
+- Map
+- HashMap
+- TreeMap
+- Queue
+
+## 7. Exception Handling
+
+Exception handling is used to handle errors that occur during
+program execution.
+
+Important keywords:
+
+- try
+- catch
+- finally
+- throw
+- throws
+
+Example:
+
+try {
+    // code
+} catch (Exception e) {
+    // handle exception
+}
+
+## 8. Java Versions
+
+Important Java versions include:
+
+- Java 8
+- Java 11
+- Java 17
+- Java 21
+- Newer Java releases
+
+Java 17 and Java 21 are important LTS releases commonly encountered
+in enterprise development.
+
+## 9. Java Backend Use Cases
+
+Java is used for:
+
+- REST APIs
+- Enterprise applications
+- Banking systems
+- E-commerce applications
+- HR applications
+- SaaS platforms
+- Microservices
+- Payment systems
+- Distributed systems
+- Backend services
+
+## 10. Multithreading Basics
+
+Multithreading allows multiple tasks to execute concurrently.
+
+Important concepts include:
+
+- Thread
+- Runnable
+- ExecutorService
+- Synchronization
+- Concurrent collections

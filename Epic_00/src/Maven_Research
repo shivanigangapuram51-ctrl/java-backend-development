@@ -1,0 +1,31 @@
+//EPIC 00 TASK-7
+
+Maven Research
+1. What is Maven?
+Maven is a build automation and dependency management tool used for Java and Spring Boot projects. It helps manage dependencies, compile code, run tests, and package applications.
+2. pom.xml
+pom.xml stands for Project Object Model. It is the main configuration file of a Maven project. It contains project information, dependencies, plugins, and build configuration.
+3. Dependencies
+Dependencies are external libraries required by a project. Maven downloads and manages these libraries automatically using the pom.xml file.
+4. Plugins
+Maven plugins are used to perform specific tasks such as compiling code, running tests, packaging the application, and running Spring Boot applications.
+5. Repositories
+Repositories are locations where Maven stores and downloads dependencies and plugins.
+Main types:
+•	Local Repository
+•	Maven Central Repository
+•	Remote Repository
+6. Maven Lifecycle
+The Maven lifecycle defines the steps used to build a project.
+validate → compile → test → package → verify → install → deploy
+7. Maven Commands
+mvn clean
+Removes the previous build output, usually the target folder.
+mvn test
+Compiles the test code and runs the project's tests.
+mvn package
+Builds the project and creates a packaged file such as a JAR.
+mvn spring-boot
+Runs a Spring Boot application using Maven.
+8. Conclusion
+Maven makes Java and Spring Boot development easier by managing dependencies, plugins, builds, testing, and application packaging through pom.xml.

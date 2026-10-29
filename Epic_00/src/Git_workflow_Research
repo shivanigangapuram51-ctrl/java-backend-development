@@ -1,0 +1,76 @@
+//EPIC 00 TASK-11
+
+#Git Workflow Research
+
+1. Repository
+A repository is a storage location where a project's source code, files, and Git history are maintained.
+2. Branch
+A branch is a separate line of development. It allows developers to work on features or changes without directly modifying the main code.
+Common branches:
+•	main – stable production-ready code
+•	develop – integration branch for development
+•	feature/* – used to develop individual features
+3. Commit
+A commit is a saved snapshot of changes made to the project.
+Example:
+git add .
+git commit -m "Add employee module"
+4. Pull Request
+A Pull Request (PR) is a request to merge chang
+
+es from one branch into another branch.
+For example:
+feature/employee-module → develop
+A Pull Request allows other developers to review the code before it is merged.
+5. Merge
+Merge means combining the changes from one branch into another branch.
+Example:
+feature/employee-module → develop
+After the feature is reviewed and approved, it can be merged into the develop branch.
+6. Merge Conflict
+A merge conflict happens when Git cannot automatically combine changes from different branches.
+For example, if two developers modify the same part of the same file differently, Git may report a conflict.
+The developer must review the conflicting changes, choose the correct code, and commit the resolved changes.
+7. .gitignore
+.gitignore is a file that tells Git which files or folders should not be tracked.
+For a Java/Spring Boot project, examples may include:
+target/
+.idea/
+*.class
+.env
+These files generally should not be committed to the repository.
+8. README
+README.md is a documentation file that explains the project.
+It can contain:
+•	Project description
+•	Technologies used
+•	Setup instructions
+•	How to run the application
+•	Project structure
+•	API information
+9. Basic Git Workflow
+A common development workflow is:
+main
+ |
+ +--- develop
+        |
+        +--- feature/employee-module
+Workflow Steps
+1.	main contains stable production-ready code.
+2.	Developers work mainly from the develop branch.
+3.	A developer creates a feature branch from develop.
+4.	The developer implements the feature.
+5.	Changes are committed to the feature branch.
+6.	The feature branch is pushed to the remote repository.
+7.	A Pull Request is created from the feature branch to develop.
+8.	Other developers review the code.
+9.	After approval, the Pull Request is merged into develop.
+10.	After testing and release preparation, changes can be merged into main.
+
+
+10. Example Commands
+git clone <repository-url>
+
+git checkout develop
+
+git checkout -b feature/employee-module

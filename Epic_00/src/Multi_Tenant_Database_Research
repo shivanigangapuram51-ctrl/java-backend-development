@@ -1,0 +1,112 @@
+//EPIC 00 TASK-09
+
+# Multi-Tenant Database Research
+1. Introduction
+Multi-tenancy is an architecture where one application serves multiple customers or organizations called tenants. Each tenant's data must be properly separated and protected from other tenants.
+There are three common database approaches for multi-tenant applications.
+
+2. Approach 1 — Shared Database / Shared Schema
+All tenants use the same database and the same tables.
+Example:
+Database
+ ├── organizations
+ ├── users
+ ├── employees
+ └── departments
+Each tenant-specific record contains a tenant_id or organization_id.
+Example:
+users
+--------------------------------
+id | tenant_id | name
+1  | 101       | User A
+2  | 102       | User B
+3  | 101       | User C
+Advantages
+•	Lowest infrastructure cost.
+•	Easier to create and manage.
+•	Simple database deployment.
+•	Efficient use of database resources.
+•	Suitable for a large number of small tenants.
+Disadvantages
+•	Strong application-level tenant isolation is required.
+•	A missing tenant filter can expose another tenant's data.
+•	Database queries and indexes can become large.
+•	Backup and restore of a single tenant can be more difficult.
+________________________________________
+3. Approach 2 — Shared Database / Separate Schema
+All tenants use the same PostgreSQL database, but each tenant has a separate database schema.
+Example:
+Database
+ ├── tenant_a
+ │    ├── users
+ │    └── employees
+ │
+ ├── tenant_b
+ │    ├── users
+ │    └── employees
+ │
+ └── tenant_c
+      ├── users
+      └── employees
+Advantages
+•	Better data isolation than a shared schema.
+•	Tenant data is separated at the schema level.
+•	Easier to manage tenant-specific database objects.
+•	Can provide better isolation without requiring a separate database for every tenant.
+Disadvantages
+•	More complex than a shared schema.
+•	A large number of schemas can become difficult to manage.
+•	Database migrations must be applied across multiple tenant schemas.
+•	Connection and schema management require additional application logic.
+________________________________________
+4. Approach 3 — Separate Database
+Each tenant has its own database.
+Example:
+Tenant A → Database A
+Tenant B → Database B
+Tenant C → Database C
+Advantages
+•	Strongest database-level isolation.
+•	Each tenant can be backed up and restored independently.
+•	Tenant-specific database configuration is possible.
+•	A problem in one tenant's database is less likely to directly affect another tenant.
+Disadvantages
+•	Highest infrastructure cost.
+•	More databases must be monitored and maintained.
+•	Database provisioning and migrations become more complex.
+•	Managing a very large number of databases can be difficult.
+________________________________________
+5. Comparison
+Area	Shared Schema	Separate Schema	Separate DB
+Cost	Low	Medium	High
+Isolation	Lower	Medium/High	High
+Sca
+lability	High for many tenants	Good	Good, but operationally complex
+Complexity	Low	Medium	High
+Maintenance	Easier	Moderate	Difficult
+Backup per tenant	More difficult	Easier	Easier
+Data separation	tenant_id	Database schema	Separate database
+Infrastructure	Shared	Shared	Dedicated per tenant
+________________________________________
+6. Technical Reasoning
+Cost
+Shared schema has the lowest cost because all tenants share the same database and tables.
+Separate schema requires additional schema management but still shares the same database infrastructure.
+Separate databases have the highest cost because each tenant requires a separate database environment or database instance.
+Isolation
+Shared schema depends heavily on correct tenant_id filtering and application-level controls.
+Separate schemas provide stronger logical separation because each tenant's tables exist in a different schema.
+Separate databases provide the strongest database-level isolation because tenants do not share the same database.
+Scalability
+Shared schema can efficiently support many tenants because all tenants use the same tables and database resources.
+Separate schema can scale well, but managing thousands of schemas can increase operational complexity.
+Separate databases provide strong isolation and independent scaling, but managing many databases increases infrastructure and operational overhead.
+Complexity
+Shared schema is the simplest approach to implement.
+Separate schema requires schema provisioning, schema selection, and migration management.
+Separate database requires database provisioning, connection management, backups, monitoring, and migrations for many databases.
+Maintenance
+Shared schema is generally easiest to maintain because there is one database structure.
+Separate schema requires database changes to be applied across multiple schemas.
+Separate database requires database changes, monitoring, backups, and maintenance across multiple databases.
+

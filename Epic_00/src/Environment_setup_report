@@ -1,0 +1,17 @@
+EPIC 00 TASK-6
+
+# Environment Setup Report
+
+| Tool | Version | Installation Status | Verification Result |
+
+| JDK | 17+ | Installed | Verified |
+| IntelliJ IDEA | Version | Installed | Verified |
+| Maven | Version | Installed | Verified |
+| Git | Version | Installed | Verified |
+| GitHub | Account/Access | Available | Verified |
+| PostgreSQL | Version | Installed | Verified |
+| pgAdmin | Version | Installed | Verified |
+| Postman | Version | Installed | Verified |
+| Redis | Version | Installed | Verified |
+| Node.js | Version | Installed | Verified |
+| VS Code | Version | Installed | Verified |

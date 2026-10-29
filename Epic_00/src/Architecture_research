@@ -1,0 +1,27 @@
+//EPIC 00 TASK-10
+
+SaaS Architecture Research
+
+1. Frontend
+The frontend is the user interface of the application. Users interact with the application through the frontend.
+2. REST API
+The REST API allows the frontend to communicate with the backend using HTTP requests such as GET, POST, PUT, and DELETE.
+3. Spring Boot
+Spring Boot is used to develop the backend application. It handles API requests and contains the application's business logic.
+4. Controller
+The Controller receives HTTP requests from the REST API and sends responses back to the client.
+5. Service
+The Service layer contains the business logic of the application. It processes the data and performs application-specific operations.
+6. Repository
+The Repository layer communicates with the database. It is responsible for storing and retrieving application data.
+7. PostgreSQL
+PostgreSQL is the relational database used to store application data such as users, employees, departments, attendance, and other SaaS information.
+8. Initial Architecture
+The initial architecture follows this flow:
+Frontend → REST API → Spring Boot → Controller / Service / Repository → PostgreSQL
+9. Future Architecture
+As the application grows, the architecture can evolve to:
+Frontend → API Gateway → Spring Boot Services → Kafka / Redis → PostgreSQL
+API Gateway can manage and route API requests. Kafka can support asynchronous event processing, while Redis can be used for caching and other high-speed data access requirements.
+10. Conclusion
+The initial architecture uses a simple layered Spring Boot structure that is suitable for starting development. It can later evolve by introducing an API Gateway, multiple Spring Boot services, Kafka, and Redis as the system requirements and scale increase.
