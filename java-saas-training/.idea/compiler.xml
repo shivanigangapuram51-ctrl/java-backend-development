@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="java-saas-training" />
         <module name="java-saas-training-epic01&amp;02" />
       </profile>
     </annotationProcessing>
