@@ -1,0 +1,8 @@
+package com.saas.employee_management_api.exception;
+
+public class DuplicateCustomerException extends RuntimeException {
+
+    public DuplicateCustomerException(String email) {
+        super("A customer with email " + email + " already exists");
+    }
+}
